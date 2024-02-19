@@ -9,7 +9,7 @@ export default function RangeInput(data: BaseInputProps) {
 
   return (
     <input
-      className="w-full py-2 px-1"
+      className="range"
       type="range"
       min={data.min}
       max={data.max}

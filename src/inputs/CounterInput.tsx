@@ -23,22 +23,25 @@ export default function CounterInput(data: CounterInputProps) {
   }
 
   return (
-    <div className="my-2 flex flex-row items-center justify-center">
-      <button
-        className="focus:shadow-outline w-8 rounded bg-gray-500 text-2xl text-white hover:bg-red-700 focus:outline-none dark:bg-gray-700"
+    <>
+    <span className={"join self-center"}>
+      <button className="btn join-item btn-primary" 
+        title="down"
         type="button"
-        onClick={() => handleChange(-(data.step || 1))}
-      >
-        -
+        onClick={() => handleChange(-(data.step || 1))}>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" /></svg>
       </button>
-      <h2 className="px-4 text-2xl dark:text-white">{data.value}</h2>
-      <button
-        className="focus:shadow-outline w-8 rounded bg-gray-500 text-2xl  text-white hover:bg-red-700 focus:outline-none dark:bg-gray-700"
+      <span className="join-item px-8 bg-base-100 flex items-center">
+      <h2 className="text-2xl text-primary">{data.value}</h2>
+      </span>
+      <button className="btn join-item btn-primary"
+        title="up"
         type="button"
-        onClick={() => handleChange(data.step || 1)}
-      >
-        +
+        onClick={() => handleChange(data.step || 1)}>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
       </button>
-    </div>
+    </span>
+    </>
+    
   );
 }

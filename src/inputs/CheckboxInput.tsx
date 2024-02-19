@@ -11,9 +11,9 @@ export default function Checkbox(data: BoolInputProps) {
   }
 
   return (
-    <div className="form-check form-switch">
+    <div className="">
       <input
-        className="form-check-input m-2 h-5 w-9 cursor-pointer appearance-none rounded-full bg-gray-300 bg-contain bg-no-repeat align-top shadow-sm focus:outline-none"
+        className="checkbox checkbox-primary"
         type="checkbox"
         role="switch"
         id={data.title}

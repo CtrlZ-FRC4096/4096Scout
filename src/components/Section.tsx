@@ -11,16 +11,14 @@ export default function Section(props: SectionProps) {
   const formData = useQRScoutState(state => state.formData);
   const inputs = formData.sections.find(s => s.name === props.name)?.fields;
   return (
-    <div
-      className="mb-4 rounded bg-gray-100 shadow-md dark:bg-gray-600"
-      key={props.name}
-    >
-      <div className="mb-2 rounded-t bg-red-rhr p-1 shadow-md">
-        <h2 className="font-rhr-ns text-2xl uppercase text-white dark:text-black">
-          {props.name}
+    <div class="card bg-base-300 pb-4" key={props.name}>
+      <figure>
+        <h2 class="font-bold text-xl text-center text-secondary-content bg-secondary w-full p-2">
+          {props.name.toUpperCase()}
         </h2>
-      </div>
-      <div className="flex flex-col justify-start gap-2">
+      </figure>
+      <div class="card-body items-center p-4">
+        <div class="flex flex-col justify-start items-center gap-2 w-full">
         {inputs?.map((e: InputProps) => (
           <InputCard
             title={e.title}
@@ -33,6 +31,7 @@ export default function Section(props: SectionProps) {
             <ConfigurableInput section={props.name} code={e.code} />
           </InputCard>
         ))}
+        </div>
       </div>
     </div>
   );

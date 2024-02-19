@@ -1,4 +1,3 @@
-import { useTheme } from 'next-themes';
 import { useMemo, useState } from 'preact/hooks';
 import { Logo } from './components/Logo';
 import QRModal from './components/QRModal';
@@ -13,11 +12,10 @@ import {
 } from './store/store';
 
 export function App() {
-  const { theme, setTheme } = useTheme();
 
   const formData = useQRScoutState(state => state.formData);
 
-  const [showQR, setShowQR] = useState(false);
+  // const [showQR, setShowQR] = useState(false);
 
   const missingRequiredFields = useMemo(() => {
     return formData.sections
@@ -63,113 +61,80 @@ export function App() {
   }
 
   return (
-    <div className="min-h-screen py-2 dark:bg-gray-700">
+    <div class="min-h-screen" data-theme="cz">
       <head>
-        <title>QRScout|{formData.title}</title>
+        <title>4096 Scout|{formData.title}</title>
         <link rel="icon" href="/favicon.ico" />
       </head>
 
-      <main className="flex flex-1 flex-col items-center justify-center px-4 text-center">
-        <h1 className="font-sans text-6xl font-bold">
-          <div className={`font-rhr text-red-rhr`}>{formData.page_title}</div>
+      <main class="flex flex-1 flex-col items-center justify-center px-4 text-center">
+        <h1 class="text-6xl font-bold text-primary mt-4">
+          {formData.page_title}
         </h1>
-        <QRModal
-          show={showQR}
-          title={`${getFieldValue('robot')} - ${getFieldValue('matchNumber')}`}
-          data={getQRCodeData()}
-          onDismiss={() => setShowQR(false)}
-        />
 
-        <form className="w-full px-4">
-          <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        <form className="w-full px-4 mb-8">
+          <div className="mt-4 grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {formData.sections.map(section => {
               return <Section key={section.name} name={section.name} />;
             })}
 
-            <div className="mb-4 flex flex-col justify-center rounded bg-white py-2 shadow-md dark:bg-gray-600">
+            <div className="card bg-base-300">
+              <div className="card-body">
+              <QRModal
+                title={`${getFieldValue('robot')} - ${getFieldValue('matchNumber')}`}
+                data={getQRCodeData()}
+                isEnabled = {missingRequiredFields.length <= 0}
+              />
               <button
-                className="focus:shadow-outline mx-2 rounded bg-gray-700 py-6 px-6 font-bold uppercase text-white hover:bg-gray-700 focus:shadow-lg focus:outline-none disabled:bg-gray-300 dark:bg-red-rhr"
-                type="button"
-                onClick={() => setShowQR(true)}
-                disabled={missingRequiredFields.length > 0}
-              >
-                Commit
-              </button>
-              <button
-                className="focus:shadow-outline mx-2 my-6 rounded border border-red-rhr bg-white py-2 font-bold uppercase text-red-rhr hover:bg-red-200 focus:outline-none dark:bg-gray-500 dark:text-white dark:hover:bg-gray-700"
+                className="mt-4 btn btn-error btn-outline text-primary-content"
                 type="button"
                 onClick={() => resetSections()}
               >
                 Reset
               </button>
+              </div>
             </div>
-            <div className="mb-4 flex flex-col justify-center rounded bg-white shadow-md dark:bg-gray-600 gap-2 p-2">
-              <Button
-                variant={Variant.Secondary}
-                onClick={() =>
-                  navigator.clipboard.writeText(
-                    formData.sections
-                      .map(s => s.fields)
-                      .flat()
-                      .map(f => f.title)
-                      .join('\t'),
-                  )
-                }
-              >
-                Copy Column Names
-              </Button>
-              <Button
-                variant={Variant.Secondary}
-                onClick={() => downloadConfig()}
-              >
-                Download Config
-              </Button>
-              <label className="mx-2 flex cursor-pointer flex-row justify-center rounded bg-gray-500 py-2 text-center font-bold text-white shadow-sm hover:bg-gray-600">
-                <span className="text-base leading-normal">Upload Config</span>
-                <input
+            
+            <div className="card bg-base-300">
+              <div className="card-body">
+                <button
+                  class="btn btn-secondary"
+                  onClick={() =>
+                    navigator.clipboard.writeText(
+                      formData.sections
+                        .map(s => s.fields)
+                        .flat()
+                        .map(f => f.title)
+                        .join('\t'),
+                    )}>
+                    Copy Column Names
+                </button>
+                <button
+                  class="btn btn-secondary mt-4"
+                  type="button" 
+                  onClick={() =>
+                    downloadConfig()}>
+                    Download Config
+                </button>
+                <label>
+                  <span type="button" class="btn btn-secondary mt-4 w-full">Upload Config</span>
+                  <input
                   type="file"
-                  className="hidden"
+                  className="hidden h-0 m-0 p-0"
                   accept=".json"
                   onChange={e => uploadConfig(e)}
                 />
-              </label>
-              <div className="mx-2 flex flex-col justify-start bg-gray-500 p-2 rounded">
-                <div className="rounded-t pb-2 text-left font-bold text-white">
-                  Theme
-                </div>
-                <select
-                  className="rounded bg-white px-4 py-2 dark:bg-gray-700 dark:text-white"
-                  name="Theme"
-                  id="theme"
-                  onInput={v => setTheme(v.currentTarget.value)}
-                  value={theme}
-                >
-                  <option key={'system'} value={'system'}>
-                    System
-                  </option>
-                  <option key={'dark'} value={'dark'}>
-                    Dark
-                  </option>
-                  <option key={'light'} value={'light'}>
-                    Light
-                  </option>
-                </select>
+                </label>
               </div>
-
-              <Button
-                variant={Variant.Secondary}
-                onClick={() => resetToDefaultConfig()}
-              >
-                Reset To Default Config
-              </Button>
             </div>
           </div>
         </form>
       </main>
-      <footer>
-        <div className="mt-8 flex h-24 flex-col items-center justify-center p-2">
+      <footer class="footer footer-center p-10 bg-secondary text-secondary-content">
+        <aside className="flex h-48 flex-col items-center justify-center p-2">
           <Logo />
-        </div>
+          <p class="mt-2">4096 Scout | <a class="link" target="_blank" href="https://github.com/FRC2713/QRScout">Based on QRScout by Team 2713</a></p>
+        </aside>
       </footer>
     </div>
   );
