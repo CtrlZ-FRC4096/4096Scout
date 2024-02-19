@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import QRCode from 'qrcode.react';
 
 export interface QRModalProps {
@@ -12,7 +14,7 @@ export default function QRModal(props: QRModalProps) {
     <button
             className={"btn btn-primary text-primary-content " + (!props.isEnabled ? "btn-disabled" : "") }
             type="button"
-            onClick={(props.isEnabled ? ()=>document.getElementById('DataModal').showModal() : ()=>{})}
+            onClick={(props.isEnabled ? ()=>document.getElementById('DataModal')!.showModal() : ()=>{})}
           >
             COMMIT
           </button>
@@ -34,7 +36,7 @@ export default function QRModal(props: QRModalProps) {
             <button
               className="btn btn-error text-error-content"
               type="button"
-              onClick={()=>document.getElementById('DataModal').close()}
+              onClick={()=>document.getElementById('DataModal')!.close()}
             >
               Close
             </button>

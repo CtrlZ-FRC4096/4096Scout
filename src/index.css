@@ -6,7 +6,7 @@ body {
   overscroll-behavior: contain;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'SF Sports Night';
   src: url('/fonts/SF Sports Night.ttf');
 }
@@ -19,4 +19,4 @@ body {
 @font-face {
   font-family: "Inter";
   src: url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap')
-}
+} */

@@ -1,12 +1,12 @@
-import { useMemo, useState } from 'preact/hooks';
+import { useMemo, /*useState*/ } from 'preact/hooks';
 import { Logo } from './components/Logo';
 import QRModal from './components/QRModal';
 import Section from './components/Section';
-import Button, { Variant } from './components/core/Button';
+// import Button, { Variant } from './components/core/Button';
 import {
   getQRCodeData,
   resetSections,
-  resetToDefaultConfig,
+  // resetToDefaultConfig,
   uploadConfig,
   useQRScoutState,
 } from './store/store';
