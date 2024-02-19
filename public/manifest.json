@@ -1,12 +1,12 @@
 {
-  "name": "QR Scout",
-  "short_name": "QR Scout",
-  "theme_color": "#ffffff",
-  "background_color": "#f03d41",
+  "name": "4096 Scout",
+  "short_name": "4096 Scout",
+  "theme_color": "FE7501",
+  "background_color": "#09131b",
   "display": "fullscreen",
   "orientation": "portrait",
-  "scope": "/Scout/",
-  "start_url": "/Scout/",
+  "scope": "/",
+  "start_url": "/",
   "icons": [
     {
       "src": "icons/icon-36x36.png",
