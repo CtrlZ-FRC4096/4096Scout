@@ -5,8 +5,8 @@
   "background_color": "#09131b",
   "display": "fullscreen",
   "orientation": "portrait",
-  "scope": "/",
-  "start_url": "/",
+  "scope": "/4096Scout-2024/",
+  "start_url": "/4096Scout-2024/",
   "icons": [
     {
       "src": "icons/icon-36x36.png",
