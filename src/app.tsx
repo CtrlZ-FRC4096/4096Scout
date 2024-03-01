@@ -72,12 +72,12 @@ export function App() {
           {formData.page_title}
         </h1>
 
-        <form className="w-full px-4 mb-8">
+        <form className="w-full px-4 mb-8" onSubmit={e => e.preventDefault()}>
           <div className="mt-4 grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {formData.sections.map(section => {
               return <Section key={section.name} name={section.name} />;
             })}
-
+            
             <div className="card bg-base-300">
               <div className="card-body">
               <QRModal
@@ -92,13 +92,8 @@ export function App() {
               >
                 Reset
               </button>
-              </div>
-            </div>
-            
-            <div className="card bg-base-300">
-              <div className="card-body">
                 <button
-                  class="btn btn-secondary"
+                  class="btn btn-secondary mt-4"
                   onClick={() =>
                     navigator.clipboard.writeText(
                       formData.sections
