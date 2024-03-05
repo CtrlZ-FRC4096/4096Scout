@@ -1,7 +1,7 @@
 {
   "name": "4096 Scout",
   "short_name": "4096 Scout",
-  "theme_color": "FE7501",
+  "theme_color": "#FE7501",
   "background_color": "#09131b",
   "display": "fullscreen",
   "orientation": "portrait",
