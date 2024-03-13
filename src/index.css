@@ -6,12 +6,12 @@ body {
   overscroll-behavior: contain;
 }
 
-/* @font-face {
-  font-family: 'SF Sports Night';
-  src: url('/fonts/SF Sports Night.ttf');
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter Variable.ttf');
 }
 
-@font-face {
+/*@font-face {
   font-family: 'SF Sports Night NS';
   src: url('/fonts/SF Sports Night NS.ttf');
 }
