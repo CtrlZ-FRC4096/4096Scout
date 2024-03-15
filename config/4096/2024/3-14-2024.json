@@ -5,7 +5,6 @@
     "sections": [
         {
             "name": "Prematch",
-            "preserveDataOnReset": true,
             "fields": [
                 {
                     "title": "Scouter Name",
@@ -20,7 +19,7 @@
                     "code": "matchNumber"
                 },
                 {
-                    "title": "Robot",
+                    "title": "Driver Station",
                     "type": "select",
                     "required": true,
                     "code": "robot",
@@ -46,10 +45,10 @@
                     "required": true,
                     "code": "Starting Location",
                     "choices": {
-                        "1": "By Amp",
-                        "2": "Aligned with Speaker",
-                        "3": "Center of Field",
-                        "0": "Other"
+                        "1": "By Amp (Amp Side)",
+                        "2": "Aligned with Speaker (Middle)",
+                        "3": "Center of Field (Opposite Amp Side)",
+                        "0": "SELECT"
                     },
                     "defaultValue": "0"
                 }
@@ -133,14 +132,6 @@
                     "defaultValue": 0,
                     "min": 0,
                     "required": false
-                },
-                {
-                    "code": "cn",
-                    "title": "Notes in Trap",
-                    "type": "counter",
-                    "defaultValue": 0,
-                    "min": 0,
-                    "required": false
                 }
             ]
         },
@@ -158,6 +149,14 @@
                         "2": "Onstage"
                     },
                     "defaultValue": "0"
+                },
+                {
+                    "code": "cn",
+                    "title": "Notes in Trap",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false
                 },
                 {
                     "title": "Harmony?",

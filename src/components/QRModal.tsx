@@ -21,7 +21,7 @@ export default function QRModal(props: QRModalProps) {
     <dialog id="DataModal" class="modal">
       <div class="modal-box bg-white w-fit flex flex-col items-center text-base-300">
         <h1 className="text-4xl">{props.title.toUpperCase()}</h1>
-        <QRCode className="m-2 my-4" size={256} value={props.data} />
+        <QRCode className="m-2 my-4" size={256} value={props.data + (props.data.slice(-2) != '\n' && '\n')} />
         <div className="flex w-full flex-row items-center justify-center gap-4">
             <div class="btn"
               onClick={() =>
