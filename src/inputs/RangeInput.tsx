@@ -9,7 +9,7 @@ export default function RangeInput(data: BaseInputProps) {
 
   return (
     <input
-      className="range"
+      className="range range-primary"
       type="range"
       min={data.min}
       max={data.max}

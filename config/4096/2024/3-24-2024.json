@@ -1,0 +1,181 @@
+{
+    "$schema": "../../schema.json",
+    "title": "4096 Scout",
+    "page_title": "Crescendo",
+    "sections": [
+        {
+            "name": "Prematch",
+            "fields": [
+                {
+                    "title": "Scouter Name",
+                    "type": "text",
+                    "required": true,
+                    "code": "scouter"
+                },
+                {
+                    "title": "Match Number",
+                    "type": "number",
+                    "required": true,
+                    "code": "matchNumber"
+                },
+                {
+                    "title": "Drive Team Location",
+                    "type": "select",
+                    "required": true,
+                    "code": "robot",
+                    "choices": {
+                        "R1": "Red 1 (Amp Side)",
+                        "R2": "Red 2 (Middle)",
+                        "R3": "Red 3 (Open Side)",
+                        "B1": "Blue 1 (Amp Side)",
+                        "B2": "Blue 2 (Middle)",
+                        "B3": "Blue 3 (Open Side)"
+                    },
+                    "defaultValue": "R1"
+                },
+                {
+                    "title": "Team Number",
+                    "type": "number",
+                    "required": true,
+                    "code": "teamNumber"
+                },
+                {
+                    "title": "Robot Starting Location",
+                    "type": "select",
+                    "required": true,
+                    "code": "Starting Location",
+                    "choices": {
+                        "1": "By Amp (Amp Side)",
+                        "2": "Aligned with Speaker (Middle)",
+                        "3": "Open Field (Open Side)",
+                        "0": "SELECT"
+                    },
+                    "defaultValue": "0"
+                }
+            ]
+        },
+        {
+            "name": "Autonomous",
+            "fields": [
+                {
+                    "title": "Mobility?",
+                    "type": "boolean",
+                    "defaultValue": false,
+                    "required": false,
+                    "code": "Mved"
+                },
+                {
+                    "code": "auamp",
+                    "title": "Amp Scored",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false
+                },
+                {
+                    "code": "ausc",
+                    "title": "Speaker Scored",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false
+                },
+                {
+                    "code": "aum",
+                    "title": "Note Missed",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false
+                }
+            ]
+        },
+        {
+            "name": "Teleop",
+            "fields": [
+                {
+                    "code": "tamps",
+                    "title": "Amp Scored",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false
+                },
+                {
+                    "code": "tsc",
+                    "title": "Speaker Scored",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false
+                },
+                {
+                    "code": "tp",
+                    "title": "Note Passed",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false
+                },
+                {
+                    "code": "tm",
+                    "title": "Note Missed",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false
+                }
+            ]
+        },
+        {
+            "name": "Endgame",
+            "fields": [
+                {
+                    "title": "End Position",
+                    "type": "select",
+                    "required": true,
+                    "code": "epo",
+                    "choices": {
+                        "0": "No Climb",
+                        "1": "Parked",
+                        "2": "Onstage"
+                    },
+                    "defaultValue": "0"
+                },
+                {
+                    "code": "cn",
+                    "title": "Notes in Trap",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false
+                },
+                {
+                    "title": "Harmony?",
+                    "type": "boolean",
+                    "defaultValue": false,
+                    "required": false,
+                    "code": "harmony"
+                },
+                {
+                    "title": "Overall Performance",
+                    "type": "range",
+                    "min": 0,
+                    "max": 2,
+                    "defaultValue": -1,
+                    "required": true,
+                    "code": "perf"
+                },
+                {
+                    "code": "co",
+                    "title": "Additional Observations",
+                    "type": "text",
+                    "min": 0,
+                    "max": 50,
+                    "defaultValue": "",
+                    "required": true
+                }
+            ]
+        }
+    ]
+}

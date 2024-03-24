@@ -1,6 +1,6 @@
 import { produce } from 'immer';
 import { ChangeEvent } from 'react';
-import configJson from '../../config/4096/2024/3-14-2024.json';
+import configJson from '../../config/4096/2024/3-24-2024.json';
 import { Config } from '../inputs/BaseInputProps';
 import { createStore } from './createStore';
 
