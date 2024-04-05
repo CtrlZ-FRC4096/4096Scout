@@ -167,9 +167,9 @@
                     "required": true,
                     "code": "perf",
                     "choices": {
-                        "0": "0 - Bad",
+                        "0": "0 - Poor",
                         "1": "1 - Average",
-                        "2": "2 - Stellar"
+                        "2": "2 - Good"
                     },
                     "defaultValue": "-1"
                 },
