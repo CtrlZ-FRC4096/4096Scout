@@ -1,7 +1,7 @@
 import { produce } from 'immer';
 import { cloneDeep } from 'lodash';
 import { ChangeEvent } from 'react';
-import configJson from '../../config/2024/config.json';
+import configJson from '../../config/4096/2024/config.json';
 import {
   Config,
   configSchema,
