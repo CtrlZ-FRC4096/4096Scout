@@ -55,7 +55,7 @@ export function ConfigSection() {
             />
           </SheetContent>
         </Sheet>
-        <ThemeSelector />
+        {/* <ThemeSelector /> */}
       </div>
     </Section>
   );
